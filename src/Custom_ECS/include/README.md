@@ -1,6 +1,6 @@
 # ECS — A Minimal, Data-Oriented Entity Component System
 
-A **lightweight, high-performance Entity Component System (ECS)** written in modern C++, designed for **clarity, control, predictability and raw perfomance**.
+A **lightweight, high-performance Entity Component System (ECS)** written in modern C++, designed for **clarity, control, predictability and raw performance**.
 
 This is not a framework.  
 It is a foundation.
