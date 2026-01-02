@@ -1,4 +1,4 @@
-# ECS — A Minimal, Data-Oriented Entity Component System
+# ECS — A Minimal, Data-Oriented Entity Component System (Header-Only library)
 
 A **lightweight, high-performance Entity Component System (ECS)** written in modern C++, designed for **clarity, control, predictability and raw performance**.
 
@@ -120,4 +120,5 @@ ecs_access(comp::position, e1, x) = 100;
 ecs_access(comp::position, e1, y) = 100;
 ecs_access(comp::position, e2, x) = ecs_access(comp::position, e1, x);
 ecs_access(comp::position, e2, y) = ecs_access(comp::position, e1, y);
+
 
