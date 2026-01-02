@@ -6,7 +6,7 @@
 #include <limits>
 #include <cstdint>
 #include <type_traits> // the standard one
-#include "../compile_time_utils/type_traits.hpp" // custom one
+#include "custom_type_traits.hpp" // custom one
 
 // only a temp solution until i create my own dynamic array and the other memory utils
 
