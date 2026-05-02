@@ -81,7 +81,7 @@ namespace myecs {
   entity GLOBAL_ENTITY_COUNTER = 0;
 
   constexpr std::size_t INVALID_INDEX = std::numeric_limits<std::size_t>::max();
-  constexpr std::size_t MULTITHREADING_SEED = 50000; // (no. of allocations )from the threshold where multithreading should start
+  //constexpr std::size_t MULTITHREADING_SEED = 50000; // (no. of allocations )from the threshold where multithreading should start
 
 
   // A new way to store metadata 
