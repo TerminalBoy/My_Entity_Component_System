@@ -113,43 +113,18 @@ namespace myecs {
     if (old_reverse_sparse_size < myecs::storage<component>::size)
       myecs::storage<component>::reverse_sparse.resize(myecs::storage<component>::size);
 
-    // trying multithreading, i recently got introcuded to this concept
-    if (GLOBAL_ENTITY_COUNTER - old_sparse_size >= MULTITHREADING_SEED) { // guards for where multithreading is not required (thread safety) preventing undefined behavior
-      //std::cerr << "\nYes multithreading\n";
-      std::fill(
-        std::execution::par_unseq,
-        myecs::storage<component>::sparse.begin() + old_sparse_size,
-        myecs::storage<component>::sparse.end(),
-        INVALID_INDEX
-      );
-    }
-    else { // no multithreading
-      //std::cerr << "\nNo multithreading\n";
-      std::fill(
-        myecs::storage<component>::sparse.begin() + old_sparse_size,
-        myecs::storage<component>::sparse.end(),
-        INVALID_INDEX
-      );
-    }
-
-    if (GLOBAL_ENTITY_COUNTER - old_reverse_sparse_size >= MULTITHREADING_SEED) {
-      //std::cerr << "\nYes multithreading\n";
-      std::fill(
-        std::execution::par_unseq,
-        myecs::storage<component>::reverse_sparse.begin() + old_reverse_sparse_size,
-        myecs::storage<component>::reverse_sparse.end(),
-        INVALID_INDEX
-      );
-    }
-    else {
-      //std::cerr << "\nNo multithreading\n";
-      std::fill(
-        myecs::storage<component>::reverse_sparse.begin() + old_reverse_sparse_size,
-        myecs::storage<component>::reverse_sparse.end(),
-        INVALID_INDEX
-      );
-    }
-
+    std::fill(
+      myecs::storage<component>::sparse.begin() + old_sparse_size,
+      myecs::storage<component>::sparse.end(),
+      INVALID_INDEX
+    );
+    
+    std::fill(
+      myecs::storage<component>::reverse_sparse.begin() + old_reverse_sparse_size,
+      myecs::storage<component>::reverse_sparse.end(),
+      INVALID_INDEX
+    );
+    
     myecs::storage<component>::sparse[id] = corresponding_comp_index;
     myecs::storage<component>::reverse_sparse[corresponding_comp_index] = id;
   }
